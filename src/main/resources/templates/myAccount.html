@@ -1,32 +1,77 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
   <head th:replace="common/header :: common-header">
-
-  </head>
-  
+  </head>  
 <body>
 	<div th:replace="common/header :: navbar"></div>    
  	<div class="container"> 		
  		<div class="row" style="margin-bottom: -40px;">  				
- 			<div class="col-lg-7">
- 				<h2  class="section-headline"><span>User account</span></h2> 				
- 			</div>
- 			<div class="col-lg-5">
- 				<img src="/images/logo.png"  class="img-responsive" />
- 			</div>
+ 			<div class="col-lg-7"><h2  class="section-headline"><span>User account</span></h2></div>
+ 			<div class="col-lg-5"><img src="/images/logo.png"  class="img-responsive" /></div>
  		</div>
  		<hr id="line-myaccount"/>	
  		<img class="img-responsive" src="/images/wood.png" id="img-myaccount-background" />
  		<div class="row">
  			<div class="col-lg-5 offset-lg-3">
- 				<ul class="nav nav-tabs">
- 					<li class="nav-item"><a class="nav-link" href="#tab-1" data-toggle="tab"><span>Create new account</span></a></li>
- 					<li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab"><span>Log in</span></a></li>
- 					<li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab"><span>Forget Password</span></a></li>
- 				</ul>
- 			</div>
+ 				<ul class="nav nav-tabs" role="tablist">
+ 					<li class="nav-item"><a class="nav-link" href="#tab-1" data-toggle="tab" role="tab"><span>Create new account</span></a></li>
+ 					<li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab" role="tab"><span>Log in</span></a></li>
+ 					<li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab" role="tab"><span>Forget Password</span></a></li>
+ 				</ul> 				
+ 				<!-- Tab Panels -->
+ 				<div class="tab-content">
+ 					<div class="tab-pane fade" id="tab-1" role="tabpanel">
+ 						<div class="card">
+ 							<div class="card-body" style="background-color: #ededed;margin-top:20px;">
+ 								<form>
+ 									<div class="form-group">
+ 										<label for="newUsername">Username:</label>
+ 										<input required="required" type="text" name="username" class="form-control" id="newUsername" placeholder="Enter Username here..."/>
+ 									</div>
+ 									<div class="form-group">
+ 										<label for="Email">Email:</label>
+ 										<input required="required" type="text" name="email" class="form-control" id="Email" placeholder="Enter email here..."/>
+ 									</div>
+ 									<button type="submit" class="btn btn-primary">Create New Account</button>
+ 								</form> 							
+ 							</div>
+ 						</div> 					
+ 					</div> 				
+ 				
+ 					<div class="tab-pane active" id="tab-2" role="tabpanel">
+ 						<div class="card">
+ 							<div class="card-body" style="background-color: #ededed;margin-top:20px;">
+ 								<form>
+ 									<div class="form-group">
+ 										<label for="username">Username:</label>
+ 										<input required="required" type="text" name="username" class="form-control" id="username" placeholder="Enter Username here..."/>
+ 									</div>
+ 									<div class="form-group">
+ 										<label for="password">Password:</label>
+ 										<input required="required" type="text" name="password" class="form-control" id="password" placeholder="Enter password here..."/>
+ 									</div>
+ 									<button type="submit" class="btn btn-primary">Login</button>
+ 								</form> 							
+ 							</div>
+ 						</div> 					
+ 					</div>			
+ 				
+ 					<div class="tab-pane fade" id="tab-3" role="tabpanel">
+ 						<div class="card">
+ 							<div class="card-body" style="background-color: #ededed;margin-top:20px;">
+ 								<form>
+ 									<div class="form-group">
+ 										<label for="email">* Your email</label>
+ 										<input required="required" type="text" name="email" class="form-control" id="email" placeholder="Enter email here..."/>
+ 									</div> 									
+ 									<button type="submit" class="btn btn-primary">Recover</button>
+ 								</form> 							
+ 							</div>
+ 						</div> 					
+ 					</div>
+ 				</div>
+ 			</div>			
  		</div>
-
  	</div> <!-- End of container --> 	
  	
 	<div th:replace="common/header :: body-bottom-scripts"></div>
