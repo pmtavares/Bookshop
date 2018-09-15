@@ -90,3 +90,9 @@ hr
 {
 	margin-top: 500px;
 }
+
+.in-active
+{
+	margin-top: 0px;
+	border: 2px solid;
+}
