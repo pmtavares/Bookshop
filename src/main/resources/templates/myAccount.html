@@ -23,7 +23,8 @@
  					<div class="tab-pane fade" id="tab-1" role="tabpanel" th:classappend = "${classActiveNewUser}? 'show active'">
  						<div class="card">
  							<div class="card-body  in active" style="background-color: #ededed;margin-top:20px;">
- 								<form>
+ 								<div class="alert alert-info" th:if="${emailSent}">An email was sent to you. Please validate it.</div>
+ 								<form th:action="@{/newUser}" method="post">
  									<div class="form-group">
  										<label for="newUsername">Username:</label>
  										<input required="required" type="text" name="username" class="form-control" id="newUsername" placeholder="Enter Username here..."/>
