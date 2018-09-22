@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
 import com.bookstore.domain.User;
 import com.bookstore.domain.security.Role;
@@ -41,5 +43,12 @@ public class BookstoreApplication implements CommandLineRunner{
 		userService.createUser(user1, userRoles);
 	}
 	
-	
+
+/*
+	@SuppressWarnings("deprecation")
+	@Bean
+	public static NoOpPasswordEncoder passwordEncoder() {
+		return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+	}
+	*/
 }

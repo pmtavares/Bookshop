@@ -26,11 +26,11 @@
  								<div class="alert alert-info" th:if="${emailSent}">An email was sent to you. Please validate it.</div>
  								<form th:action="@{/newUser}" method="post">
  									<div class="form-group">
- 										<label for="newUsername">Username:</label>
+ 										<label for="newUsername">Username:</label>&nbsp;<span style="color:red;" th:if="${usernameExists}">Username already exists.</span>
  										<input required="required" type="text" name="username" class="form-control" id="newUsername" placeholder="Enter Username here..."/>
  									</div>
  									<div class="form-group">
- 										<label for="Email">Email:</label>
+ 										<label for="Email">Email:</label> &nbsp;<span style="color:red;" th:if="${emailExists}">Email already exists.</span>
  										<input required="required" type="text" name="email" class="form-control" id="Email" placeholder="Enter email here..."/>
  									</div>
  									<button type="submit" class="btn btn-primary">Create New Account</button>
@@ -42,7 +42,9 @@
  					<div class="tab-pane fade" id="tab-2" role="tabpanel" th:classappend = "${classActiveLogin}? 'show active'" >
  						<div class="card">
  							<div class="card-body" style="background-color: #ededed;margin-top:20px;">
- 								<form>
+ 								<div th:if="${param.error != null}" style="color:red;">Incorrect user or password</div>
+ 								
+ 								<form  th:action="@{/login}" method="post">
  									<div class="form-group">
  										<label for="username">Username:</label>
  										<input required="required" type="text" name="username" class="form-control" id="username" placeholder="Enter Username here..."/>
@@ -60,7 +62,9 @@
  					<div class="tab-pane fade" id="tab-3" role="tabpanel" th:classappend = "${classActiveForgetPassword}? 'show active'">
  						<div class="card">
  							<div class="card-body" style="background-color: #ededed;margin-top:20px;">
- 								<form>
+ 							<div th:if="${emailNotExists}" class="alert alert-danger">Email does not exists</div>
+ 							<div th:if="${forgetPasswordEmailSent}" class="alert alert-success">Email Sent</div>
+ 								<form th:action="@{/forgetPassword}" method="post">
  									<div class="form-group">
  										<label for="email">* Your email</label>
  										<input required="required" type="text" name="email" class="form-control" id="email" placeholder="Enter email here..."/>

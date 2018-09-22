@@ -37,7 +37,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			"/images/**",
 			"/",
 			"/newUser",
-			"/forgetPassword"
+			"/forgetPassword",
+			"/login",
+			"/fonts**"
 	};
 
 	@Override
@@ -60,6 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		
 	};
 	
+	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception
 	{
 		auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());
