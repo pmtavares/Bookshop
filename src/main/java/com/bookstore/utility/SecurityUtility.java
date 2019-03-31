@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface SecurityUtility {
-	static final String SALT = "salt";
+	static final String SALT = "salt"; //Shoul be protective
 	
 	@Bean
 	public static BCryptPasswordEncoder passwordEncoder()
